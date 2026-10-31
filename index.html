@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canon — Historia de una marca</title>
+    <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+<body>
+
+    <header id="encabezado">
+        <div class="barra">
+            <a class="marca" href="index.html"><img src="img/logo-canon.png" alt="Canon"></a>
+            <nav>
+                <a class="activo" href="index.html">Inicio</a>
+                <a href="HTML/historia.html">Historia</a>
+                <a href="HTML/camaras.html">Cámaras</a>
+                <a href="HTML/galeria.html">Galería</a>
+                <a href="HTML/contacto.html">Club</a>
+            </nav>
+            <button id="btn-tema" type="button">☾ Modo oscuro</button>
+        </div>
+    </header>
+
+    <div class="portada">
+        <h1>Canon</h1>
+        <p>Historia, tecnología y cámaras emblemáticas de una marca que nació en un pequeño laboratorio de Tokio.</p>
+        <p class="saludo" id="saludo"></p>
+    </div>
+
+    <main>
+
+        <section class="dos-columnas">
+            <div>
+                <h2 class="titulo-seccion">De un laboratorio en Tokio a la fotografía digital</h2>
+                <p>
+                    En 1934 un pequeño laboratorio japonés construyó el prototipo de la
+                    primera cámara de <strong>35 milímetros</strong> fabricada en Japón.
+                    La llamaron <em>Kwanon</em>. Nueve décadas después, esa empresa es uno
+                    de los fabricantes de equipamiento fotográfico más grandes del mundo.
+                </p>
+                <p>
+                    Este sitio recorre esa historia: los modelos que marcaron un antes y un
+                    después, las decisiones técnicas que definieron el rumbo de la marca, y
+                    el salto del carrete al sensor digital.
+                </p>
+            </div>
+            <figure>
+                <img src="img/kwanon.jpg" alt="Prototipo Kwanon de 1934">
+                <figcaption>El prototipo Kwanon (1934)</figcaption>
+            </figure>
+        </section>
+
+        <blockquote>
+            La <abbr title="Single Lens Reflex">SLR</abbr> dejó de ser una
+            herramienta de especialistas cuando el precio y la automatización
+            se encontraron en el mismo cuerpo.
+        </blockquote>
+
+        <section>
+            <h2 class="titulo-seccion">Tres momentos que cambiaron todo</h2>
+
+            <div class="grilla">
+                <article class="tarjeta">
+                    <span class="anio">1976</span>
+                    <h3>Canon AE-1</h3>
+                    <p>
+                        La primera <abbr title="Single Lens Reflex">SLR</abbr> con un
+                        microprocesador a bordo. Vendió millones de unidades y puso la
+                        fotografía réflex al alcance del aficionado.
+                    </p>
+                    <a href="HTML/camaras.html">Ver ficha →</a>
+                </article>
+
+                <article class="tarjeta">
+                    <span class="anio">1987</span>
+                    <h3>Sistema EOS</h3>
+                    <p>
+                        Canon abandonó la montura FD y lanzó la montura <strong>EF</strong>,
+                        totalmente electrónica, con el motor de enfoque dentro del objetivo.
+                    </p>
+                    <a href="HTML/camaras.html">Ver ficha →</a>
+                </article>
+
+                <article class="tarjeta">
+                    <span class="anio">2003</span>
+                    <h3>EOS 300D</h3>
+                    <p>
+                        La <abbr title="Digital Single Lens Reflex">DSLR</abbr> que rompió
+                        la barrera de los mil dólares y llevó el sensor digital al mercado
+                        de consumo.
+                    </p>
+                    <a href="HTML/camaras.html">Ver ficha →</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="dato">
+            <strong>Dato:</strong> el nombre Kwanon proviene de Kannon, la deidad budista
+            de la misericordia. Al internacionalizarse, la marca adoptó la grafía
+            <strong>Canon</strong>, más fácil de pronunciar fuera de Japón.
+        </section>
+
+    </main>
+
+    <footer>
+        Trabajo práctico — Introducción a la Programación Web · Thiago Vignettes<br>
+        <a href="HTML/contacto.html">Sumate al club</a>
+    </footer>
+
+    <script src="JS/comun.js"></script>
+    <script src="JS/inicio.js"></script>
+</body>
+</html>

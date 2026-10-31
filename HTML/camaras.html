@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canon — Cámaras emblemáticas</title>
+    <link rel="stylesheet" href="../CSS/estilos.css">
+</head>
+<body>
+
+    <header id="encabezado">
+        <div class="barra">
+            <a class="marca" href="../index.html"><img src="../img/logo-canon.png" alt="Canon"></a>
+            <nav>
+                <a href="../index.html">Inicio</a>
+                <a href="historia.html">Historia</a>
+                <a class="activo" href="camaras.html">Cámaras</a>
+                <a href="galeria.html">Galería</a>
+                <a href="contacto.html">Club</a>
+            </nav>
+            <button id="btn-tema" type="button">☾ Modo oscuro</button>
+        </div>
+    </header>
+
+    <main>
+
+        <h1 class="titulo-seccion">Cámaras emblemáticas de Canon</h1>
+        <p class="subtitulo">Buscá un modelo, filtrá por tipo u ordená la tabla haciendo clic en los títulos.</p>
+
+        <div class="controles">
+            <div>
+                <label for="buscar">Buscar modelo</label>
+                <input type="text" id="buscar" placeholder="Ej: EOS, AE-1...">
+            </div>
+            <div>
+                <label for="filtro-tipo">Tipo de cámara</label>
+                <select id="filtro-tipo">
+                    <option value="Todos">Todos</option>
+                    <option value="SLR">SLR (película)</option>
+                    <option value="DSLR">DSLR</option>
+                    <option value="Mirrorless">Mirrorless</option>
+                </select>
+            </div>
+        </div>
+
+        <p class="info" id="cantidad"></p>
+
+        <div class="tabla-contenedor">
+            <table>
+                <caption>Comparativa de modelos históricos</caption>
+                <thead>
+                    <tr id="titulos">
+                        <th id="col-modelo">Modelo</th>
+                        <th id="col-anio">Año ↕</th>
+                        <th id="col-tipo">Tipo</th>
+                        <th id="col-montura">Montura</th>
+                        <th id="col-formato">Formato</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpo-tabla"></tbody>
+            </table>
+        </div>
+
+        <article class="tarjeta" id="ficha">
+            <h2 id="ficha-titulo"></h2>
+            <p id="ficha-texto"></p>
+        </article>
+
+        <p class="info">Tip: presioná <strong>Escape</strong> para borrar la búsqueda.</p>
+
+    </main>
+
+    <footer>
+        Trabajo práctico — Introducción a la Programación Web · Thiago Vignettes<br>
+        <a href="contacto.html">Sumate al club</a>
+    </footer>
+
+    <script src="../JS/comun.js"></script>
+    <script src="../JS/camaras.js"></script>
+</body>
+</html>

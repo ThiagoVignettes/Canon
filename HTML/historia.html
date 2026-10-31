@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canon — Historia</title>
+    <link rel="stylesheet" href="../CSS/estilos.css">
+</head>
+<body>
+
+    <header id="encabezado">
+        <div class="barra">
+            <a class="marca" href="../index.html"><img src="../img/logo-canon.png" alt="Canon"></a>
+            <nav>
+                <a href="../index.html">Inicio</a>
+                <a class="activo" href="historia.html">Historia</a>
+                <a href="camaras.html">Cámaras</a>
+                <a href="galeria.html">Galería</a>
+                <a href="contacto.html">Club</a>
+            </nav>
+            <button id="btn-tema" type="button">☾ Modo oscuro</button>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="dos-columnas">
+            <div>
+                <h1 class="titulo-seccion">Historia de Canon</h1>
+                <p class="subtitulo">Nueve décadas de fotografía</p>
+                <p>
+                    El prototipo <em>Kwanon</em> fue la primera cámara de 35 mm diseñada en
+                    Japón. Su nombre rendía homenaje a Kannon, la deidad budista de la
+                    misericordia.
+                </p>
+            </div>
+            <figure>
+                <img src="../img/kwanon.jpg" alt="Prototipo Kwanon de 1934">
+                <figcaption>Kwanon, 1934</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2 class="titulo-seccion">Línea de tiempo</h2>
+            <p class="info">Hacé clic en cada año para ver más información.</p>
+
+            <ol class="linea-tiempo" id="linea-tiempo">
+                <li>
+                    <strong>1934</strong> — Prototipo Kwanon.
+                    <p class="detalle">Primera cámara de 35 mm hecha en Japón. Nunca llegó a venderse, pero dio origen a la marca.</p>
+                </li>
+                <li>
+                    <strong>1937</strong> — Se funda Precision Optical Industry.
+                    <p class="detalle">La empresa que años después pasaría a llamarse Canon.</p>
+                </li>
+                <li>
+                    <strong>1971</strong> — Canon F-1.
+                    <p class="detalle">La primera réflex profesional de la marca, pensada para competir con los grandes fabricantes.</p>
+                </li>
+                <li>
+                    <strong>1976</strong> — Canon AE-1.
+                    <p class="detalle">La primera SLR con microprocesador. Fue un éxito de ventas en todo el mundo.</p>
+                </li>
+                <li>
+                    <strong>1987</strong> — Nace el sistema EOS con montura EF.
+                    <p class="detalle">Montura totalmente electrónica, con el motor de enfoque dentro del objetivo.</p>
+                </li>
+                <li>
+                    <strong>2003</strong> — EOS 300D.
+                    <p class="detalle">La DSLR que bajó de los mil dólares y llevó la fotografía digital a todos.</p>
+                </li>
+                <li>
+                    <strong>2018</strong> — EOS R.
+                    <p class="detalle">La apuesta de Canon por las mirrorless full frame, con la nueva montura RF.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="dos-columnas">
+            <div class="tarjeta">
+                <h2>Glosario</h2>
+                <dl>
+                    <dt>SLR</dt>
+                    <dd>Single Lens Reflex. Cámara réflex con espejo y un solo objetivo.</dd>
+
+                    <dt>Montura</dt>
+                    <dd>El sistema de acople entre el cuerpo y el objetivo. Canon usó FD, luego EF, y hoy RF.</dd>
+
+                    <dt>Full frame</dt>
+                    <dd>Sensor del tamaño de un fotograma de 35 mm.</dd>
+
+                    <dt>Mirrorless</dt>
+                    <dd>Cámara sin espejo: la imagen va directo del objetivo al sensor.</dd>
+                </dl>
+            </div>
+
+            <div class="tarjeta">
+                <h2>Líneas de producto actuales</h2>
+                <ul>
+                    <li>Serie EOS R (mirrorless)
+                        <ul>
+                            <li>Full frame</li>
+                            <li>APS-C</li>
+                        </ul>
+                    </li>
+                    <li>Serie PowerShot (compactas)</li>
+                    <li>Serie EOS (DSLR, en discontinuación)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="titulo-seccion">¿Cuánto sabés de Canon?</h2>
+            <div class="marcador">
+                Puntaje: <span id="puntaje">0</span> / <span id="total"></span>
+                · Mejor puntaje: <span id="mejor">0</span>
+            </div>
+            <div id="preguntas"></div>
+            <div class="botones">
+                <button class="boton secundario" id="btn-reiniciar" type="button">Reiniciar quiz</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        Trabajo práctico — Introducción a la Programación Web · Thiago Vignettes<br>
+        <a href="contacto.html">Sumate al club</a>
+    </footer>
+
+    <script src="../JS/comun.js"></script>
+    <script src="../JS/historia.js"></script>
+</body>
+</html>

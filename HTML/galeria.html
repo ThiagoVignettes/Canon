@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canon — Galería</title>
+    <link rel="stylesheet" href="../CSS/estilos.css">
+</head>
+<body>
+
+    <header id="encabezado">
+        <div class="barra">
+            <a class="marca" href="../index.html"><img src="../img/logo-canon.png" alt="Canon"></a>
+            <nav>
+                <a href="../index.html">Inicio</a>
+                <a href="historia.html">Historia</a>
+                <a href="camaras.html">Cámaras</a>
+                <a class="activo" href="galeria.html">Galería</a>
+                <a href="contacto.html">Club</a>
+            </nav>
+            <button id="btn-tema" type="button">☾ Modo oscuro</button>
+        </div>
+    </header>
+
+    <main>
+
+        <h1 class="titulo-seccion">Galería</h1>
+
+        <section>
+            <h2>Modelos históricos</h2>
+            <p class="info">Hacé clic en una foto para verla en grande.</p>
+
+            <div class="galeria" id="galeria">
+                <figure class="foto">
+                    <img src="../img/ae1.jpg" alt="Canon AE-1 de 1976">
+                    <figcaption>Canon AE-1 · 1976</figcaption>
+                </figure>
+                <figure class="foto">
+                    <img src="../img/eos-650.jpg" alt="Canon EOS 650 de 1987">
+                    <figcaption>Canon EOS 650 · 1987</figcaption>
+                </figure>
+                <figure class="foto">
+                    <img src="../img/eos-300d.jpg" alt="Canon EOS 300D de 2003">
+                    <figcaption>Canon EOS 300D · 2003</figcaption>
+                </figure>
+                <figure class="foto">
+                    <img src="../img/eos-r.jpg" alt="Canon EOS R de 2018">
+                    <figcaption>Canon EOS R · 2018</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="dos-columnas">
+            <div class="tarjeta">
+                <h2>Tamaño de sensor</h2>
+                <svg class="grafico" viewBox="0 0 400 220" role="img" aria-label="Comparación de tamaños de sensor">
+                    <defs>
+                        <linearGradient id="degradeCanon" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#cc0000" />
+                            <stop offset="100%" stop-color="#ff8800" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="20" y="30" width="270" height="180" rx="6" fill="url(#degradeCanon)" />
+                    <text x="200" y="195" fill="white" font-size="18" text-anchor="middle" style="fill: white;">Full Frame 36 × 24 mm</text>
+                    <rect x="20" y="30" width="168" height="112" rx="6" fill="#000" opacity="0.55" stroke="white" stroke-width="2" />
+                    <text x="104" y="92" font-size="15" text-anchor="middle" style="fill: white;">APS-C 22,3 × 14,9 mm</text>
+                </svg>
+            </div>
+
+            <div class="tarjeta">
+                <h2>Megapíxeles a lo largo del tiempo</h2>
+                <svg class="grafico" viewBox="0 0 400 220" role="img" aria-label="Megapíxeles de distintas cámaras Canon">
+                    <line x1="30" y1="190" x2="390" y2="190" stroke="#999" stroke-width="1" />
+                    <rect x="45" y="176" width="44" height="14" rx="4" fill="#cc0000" />
+                    <rect x="115" y="162" width="44" height="28" rx="4" fill="#cc0000" />
+                    <rect x="185" y="143" width="44" height="47" rx="4" fill="#cc0000" />
+                    <rect x="255" y="123" width="44" height="67" rx="4" fill="#cc0000" />
+                    <rect x="325" y="90" width="44" height="100" rx="4" fill="#cc0000" />
+                    <text x="67" y="170" font-size="13" text-anchor="middle">6,3</text>
+                    <text x="137" y="156" font-size="13" text-anchor="middle">12,8</text>
+                    <text x="207" y="137" font-size="13" text-anchor="middle">21,1</text>
+                    <text x="277" y="117" font-size="13" text-anchor="middle">30,3</text>
+                    <text x="347" y="84" font-size="13" text-anchor="middle">45</text>
+                    <text x="67" y="208" font-size="12" text-anchor="middle">300D</text>
+                    <text x="137" y="208" font-size="12" text-anchor="middle">5D</text>
+                    <text x="207" y="208" font-size="12" text-anchor="middle">5D II</text>
+                    <text x="277" y="208" font-size="12" text-anchor="middle">EOS R</text>
+                    <text x="347" y="208" font-size="12" text-anchor="middle">R5</text>
+                </svg>
+            </div>
+        </section>
+
+        <section>
+            <h2>Canon en movimiento</h2>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/Uc0Hy7UJbCs"
+                        title="Historia de Canon"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="creditos">
+            <strong>Créditos de las imágenes</strong> (Wikimedia Commons):
+            <ul>
+                <li>Canon AE-1: Cburnett, CC BY-SA 3.0</li>
+                <li>Canon EOS 650: Thire, CC BY-SA 2.5</li>
+                <li>Canon EOS 300D: Ansgar Koreng, CC BY-SA 4.0</li>
+                <li>Canon EOS R: Shansov.net, CC0</li>
+                <li>Kwanon (réplica): Morio, CC BY-SA 4.0</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <div id="visor">
+        <div id="visor-caja">
+            <img id="visor-img" src="" alt="">
+            <p id="visor-texto"></p>
+            <p class="ayuda">Hacé clic afuera o presioná Escape para cerrar</p>
+        </div>
+    </div>
+
+    <footer>
+        Trabajo práctico — Introducción a la Programación Web · Thiago Vignettes<br>
+        <a href="contacto.html">Sumate al club</a>
+    </footer>
+
+    <script src="../JS/comun.js"></script>
+    <script src="../JS/galeria.js"></script>
+</body>
+</html>

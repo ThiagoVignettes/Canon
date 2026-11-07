@@ -714,16 +714,6 @@ tbody tr.resaltada {
     font-size: 0.875rem;
 }
 
-.creditos {
-    color: var(--gris);
-    font-size: 0.85rem;
-}
-
-.creditos ul {
-    margin: 0.4rem 0 0;
-    padding-left: 1.1rem;
-}
-
 /* Preguntas frecuentes */
 .faq article {
     margin-bottom: 1rem;

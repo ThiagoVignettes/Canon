@@ -41,5 +41,5 @@ Abrir la carpeta en Visual Studio Code y usar Live Server sobre `index.html`.
 
 ## Créditos
 
-Fotos de Wikimedia Commons (autores y licencias en la galería).
+Fotos de Wikimedia Commons, con licencias libres.
 Datos tomados del Canon Camera Museum. Canon es una marca registrada de Canon Inc.

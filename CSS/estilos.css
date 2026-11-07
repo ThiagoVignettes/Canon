@@ -724,59 +724,6 @@ tbody tr.resaltada {
     padding-left: 1.1rem;
 }
 
-/* Quiz */
-.pregunta {
-    margin-bottom: 1.1rem;
-}
-
-.pregunta h3 {
-    font-size: 1.1rem;
-}
-
-.opcion {
-    display: block;
-    width: 100%;
-    margin: 0.5rem 0;
-    padding: 0.6rem 0.9rem;
-    border: 0.125rem solid var(--linea);
-    border-radius: 0.5rem;
-    background-color: var(--fondo);
-    color: var(--tinta);
-    font: inherit;
-    text-align: left;
-    cursor: pointer;
-    transition: border-color 0.2s ease;
-}
-
-.opcion:hover {
-    border-color: var(--rojo);
-}
-
-.opcion:disabled {
-    cursor: default;
-}
-
-.opcion.correcta {
-    border-color: #137333;
-    background-color: #137333;
-    color: #ffffff;
-}
-
-.opcion.incorrecta {
-    border-color: #c5221f;
-    background-color: #c5221f;
-    color: #ffffff;
-}
-
-.marcador {
-    margin-bottom: 1.25rem;
-    padding: 0.6rem 1rem;
-    border-radius: 0.6rem;
-    background-color: var(--tarjeta);
-    box-shadow: var(--sombra);
-    font-weight: 700;
-}
-
 /* Preguntas frecuentes */
 .faq article {
     margin-bottom: 1rem;

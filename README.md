@@ -11,7 +11,7 @@ Sitio web sobre la historia de Canon, hecho como trabajo práctico de la materia
 | Archivo | Contenido |
 |---|---|
 | `index.html` | Inicio, con contador de visitas |
-| `HTML/historia.html` | Línea de tiempo y quiz |
+| `HTML/historia.html` | Línea de tiempo desplegable |
 | `HTML/camaras.html` | Tabla de cámaras con búsqueda, filtro y orden |
 | `HTML/objetivos.html` | Monturas FD, EF y RF y objetivos conocidos |
 | `HTML/tecnologia.html` | Tecnologías de Canon |

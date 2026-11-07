@@ -1,4 +1,4 @@
-// Este archivo está en Cámaras. Arma la tabla con JavaScript y deja filtrarla por tipo.
+// Este archivo está en Cámaras. Arma la tabla con JavaScript y muestra la ficha de cada cámara.
 
 // Arreglo de objetos: cada objeto es una cámara con sus datos.
 // La tabla del HTML está vacía y se llena con esto.
@@ -13,17 +13,6 @@ const camaras = [
     { modelo: "Canon EOS R", anio: 2018, tipo: "Mirrorless", montura: "RF", formato: "Full frame (digital)", descripcion: "La primera mirrorless full frame de Canon, que estrenó la montura RF." },
     { modelo: "Canon EOS R5", anio: 2020, tipo: "Mirrorless", montura: "RF", formato: "Full frame (digital)", descripcion: "45 megapíxeles y video 8K. Una de las cámaras más completas de la marca." }
 ];
-
-// Me dice si una cámara se tiene que mostrar o no.
-// Devuelve true si es del tipo elegido en la lista (o si está elegido "Todos").
-function cumpleFiltro(camara) {
-    const tipo = document.getElementById("filtro-tipo").value;
-
-    if (tipo != "Todos" && camara.tipo != tipo) {
-        return false;
-    }
-    return true;
-}
 
 // Crea una celda (td) con el texto que le paso y la devuelve
 function crearCelda(texto) {
@@ -64,24 +53,13 @@ function crearFila(camara) {
     return fila;
 }
 
-// Borra la tabla y la vuelve a armar solo con las cámaras del tipo elegido.
-// Se llama al cargar la página y cada vez que cambio el filtro.
-function actualizarTabla() {
+// Recorre el arreglo y agrega una fila a la tabla por cada cámara
+function armarTabla() {
     const cuerpo = document.getElementById("cuerpo-tabla");
-    let cantidad = 0;
-    // vacío la tabla para no repetir filas
-    cuerpo.innerHTML = "";
 
-    // recorro todas las cámaras y agrego solo las que cumplen
     for (let i = 0; i < camaras.length; i++) {
-        if (cumpleFiltro(camaras[i])) {
-            cuerpo.appendChild(crearFila(camaras[i]));
-            cantidad++;
-        }
+        cuerpo.appendChild(crearFila(camaras[i]));
     }
-
-    // muestro cuántas quedaron
-    document.getElementById("cantidad").textContent = `Mostrando ${cantidad} de ${camaras.length} modelos.`;
 }
 
 // Muestra abajo de la tabla el nombre, el año y la descripción de la cámara
@@ -92,18 +70,5 @@ function mostrarFicha(camara) {
     document.getElementById("ficha").classList.add("visible");
 }
 
-// Si aprieto Escape, vuelvo el filtro a "Todos" y escondo la ficha
-function limpiarConEscape(evento) {
-    if (evento.key == "Escape") {
-        document.getElementById("filtro-tipo").value = "Todos";
-        document.getElementById("ficha").classList.remove("visible");
-        actualizarTabla();
-    }
-}
-
-// Eventos
-// cuando termina de cargar la página, dibujo la tabla
-document.addEventListener("DOMContentLoaded", actualizarTabla);
-// change: se ejecuta cuando elijo otro tipo en la lista
-document.getElementById("filtro-tipo").addEventListener("change", actualizarTabla);
-document.addEventListener("keydown", limpiarConEscape);
+// Cuando termina de cargar la página, armo la tabla
+document.addEventListener("DOMContentLoaded", armarTabla);

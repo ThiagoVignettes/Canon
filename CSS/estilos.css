@@ -389,20 +389,6 @@ dd {
 }
 
 /* Formularios y botones */
-.controles {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.9rem;
-    align-items: flex-end;
-    margin-bottom: 1.1rem;
-}
-
-.controles div {
-    flex: 1;
-    min-width: 12.5rem;
-    max-width: 22rem;
-}
-
 label {
     display: block;
     margin-bottom: 0.4rem;

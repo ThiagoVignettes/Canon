@@ -1,9 +1,10 @@
-let fotos = document.querySelectorAll(".foto");
-let visor = document.getElementById("visor");
+const fotos = document.querySelectorAll(".foto");
+const visor = document.getElementById("visor");
 
+// Muestra la foto elegida en grande
 function abrirVisor(foto) {
-    let imagen = foto.querySelector("img");
-    let texto = foto.querySelector("figcaption");
+    const imagen = foto.querySelector("img");
+    const texto = foto.querySelector("figcaption");
 
     document.getElementById("visor-img").src = imagen.src;
     document.getElementById("visor-img").alt = imagen.alt;
@@ -15,6 +16,7 @@ function cerrarVisor() {
     visor.classList.remove("visible");
 }
 
+// Eventos de cada foto
 for (let i = 0; i < fotos.length; i++) {
     fotos[i].addEventListener("pointerenter", () => {
         fotos[i].classList.add("destacada");
@@ -22,13 +24,14 @@ for (let i = 0; i < fotos.length; i++) {
     fotos[i].addEventListener("pointerleave", () => {
         fotos[i].classList.remove("destacada");
     });
-    fotos[i].addEventListener("click", () => {
+    fotos[i].querySelector(".abrir-foto").addEventListener("click", () => {
         abrirVisor(fotos[i]);
     });
 }
 
 visor.addEventListener("click", cerrarVisor);
 
+// Evita que se cierre al tocar la foto
 document.getElementById("visor-caja").addEventListener("click", (evento) => {
     evento.stopPropagation();
 });

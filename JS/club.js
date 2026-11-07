@@ -1,6 +1,7 @@
 let miembros = [];
 
-let descripciones = {
+// Texto que aparece al elegir cada cámara
+const descripciones = {
     "Canon AE-1": "1976 · La SLR que popularizó la fotografía réflex.",
     "Canon EOS 650": "1987 · La primera del sistema EOS con montura EF.",
     "Canon EOS 300D": "2003 · La DSLR que llevó lo digital a todos.",
@@ -9,13 +10,14 @@ let descripciones = {
 };
 
 function mostrarMensaje(texto, tipo) {
-    let mensaje = document.getElementById("mensaje");
+    const mensaje = document.getElementById("mensaje");
     mensaje.textContent = texto;
     mensaje.className = tipo;
 }
 
+// Devuelve la fecha de hoy como aaaa-mm-dd
 function fechaDeHoy() {
-    let hoy = new Date();
+    const hoy = new Date();
     let mes = hoy.getMonth() + 1;
     let dia = hoy.getDate();
 
@@ -25,16 +27,18 @@ function fechaDeHoy() {
     if (dia < 10) {
         dia = "0" + dia;
     }
-    return hoy.getFullYear() + "-" + mes + "-" + dia;
+    return `${hoy.getFullYear()}-${mes}-${dia}`;
 }
 
+// Pasa de aaaa-mm-dd a dd/mm/aaaa
 function formatearFecha(fecha) {
-    let partes = fecha.split("-");
-    return partes[2] + "/" + partes[1] + "/" + partes[0];
+    const partes = fecha.split("-");
+    return `${partes[2]}/${partes[1]}/${partes[0]}`;
 }
 
+// Validaciones
 function validarNombre() {
-    let campo = document.getElementById("nombre");
+    const campo = document.getElementById("nombre");
 
     if (campo.value.trim().length < 3) {
         campo.classList.add("campo-error");
@@ -45,8 +49,8 @@ function validarNombre() {
 }
 
 function validarEmail() {
-    let campo = document.getElementById("email");
-    let email = campo.value.trim();
+    const campo = document.getElementById("email");
+    const email = campo.value.trim();
 
     if (email.includes("@") == false || email.includes(".") == false) {
         campo.classList.add("campo-error");
@@ -71,7 +75,7 @@ function validarFormulario() {
         return false;
     }
     if (validarEmail() == false) {
-        mostrarMensaje("Ingresá un email válido.", "error");
+        mostrarMensaje("Ingresá un email válido, por ejemplo nombre@correo.com.", "error");
         return false;
     }
     if (document.getElementById("camara").value == "") {
@@ -93,18 +97,20 @@ function validarFormulario() {
     return true;
 }
 
+// Guardar y cargar con localStorage
 function guardarMiembros() {
     localStorage.setItem("miembros", JSON.stringify(miembros));
 }
 
 function cargarMiembros() {
-    let texto = localStorage.getItem("miembros");
+    const texto = localStorage.getItem("miembros");
 
     if (texto != null) {
         miembros = JSON.parse(texto);
     }
 }
 
+// Agrega un miembro nuevo
 function registrar(evento) {
     evento.preventDefault();
 
@@ -112,7 +118,7 @@ function registrar(evento) {
         return;
     }
 
-    let miembro = {
+    const miembro = {
         nombre: document.getElementById("nombre").value.trim(),
         email: document.getElementById("email").value.trim(),
         camara: document.getElementById("camara").value,
@@ -123,17 +129,18 @@ function registrar(evento) {
     guardarMiembros();
     actualizarTabla();
     limpiarFormulario();
-    mostrarMensaje("¡Listo " + miembro.nombre + ", ya sos parte del club!", "ok");
+    mostrarMensaje(`¡Listo ${miembro.nombre}, ya sos parte del club!`, "ok");
 }
 
+// Borra un miembro (delegación de eventos)
 function eliminarMiembro(evento) {
     if (evento.target.className != "borrar") {
         return;
     }
 
-    let posicion = Number(evento.target.value);
+    const posicion = Number(evento.target.value);
 
-    if (confirm("¿Seguro que querés eliminar a " + miembros[posicion].nombre + "?")) {
+    if (confirm(`¿Seguro que querés eliminar a ${miembros[posicion].nombre}?`)) {
         miembros.splice(posicion, 1);
         guardarMiembros();
         actualizarTabla();
@@ -142,29 +149,30 @@ function eliminarMiembro(evento) {
 }
 
 function crearCelda(texto) {
-    let celda = document.createElement("td");
+    const celda = document.createElement("td");
     celda.textContent = texto;
     return celda;
 }
 
+// Vuelve a dibujar la tabla de miembros
 function actualizarTabla() {
-    let cuerpo = document.getElementById("cuerpo-miembros");
+    const cuerpo = document.getElementById("cuerpo-miembros");
     cuerpo.innerHTML = "";
 
     for (let i = 0; i < miembros.length; i++) {
-        let fila = document.createElement("tr");
+        const fila = document.createElement("tr");
         fila.appendChild(crearCelda(miembros[i].nombre));
         fila.appendChild(crearCelda(miembros[i].email));
         fila.appendChild(crearCelda(miembros[i].camara));
         fila.appendChild(crearCelda(formatearFecha(miembros[i].fecha)));
 
-        let boton = document.createElement("button");
+        const boton = document.createElement("button");
         boton.className = "borrar";
         boton.type = "button";
         boton.value = i;
         boton.textContent = "Eliminar";
 
-        let celdaBoton = document.createElement("td");
+        const celdaBoton = document.createElement("td");
         celdaBoton.appendChild(boton);
         fila.appendChild(celdaBoton);
 
@@ -174,16 +182,17 @@ function actualizarTabla() {
     actualizarResumen();
 }
 
+// Cuenta cuántos eligieron cada cámara
 function actualizarResumen() {
-    let resumen = document.getElementById("resumen");
+    const resumen = document.getElementById("resumen");
 
     if (miembros.length == 0) {
         resumen.textContent = "Todavía no hay nadie anotado. ¡Sé el primero!";
         return;
     }
 
-    let texto = "Total de miembros: " + miembros.length + ".";
-    let opciones = document.getElementById("camara").options;
+    let texto = `Total de miembros: ${miembros.length}.`;
+    const opciones = document.getElementById("camara").options;
 
     for (let i = 1; i < opciones.length; i++) {
         let cantidad = 0;
@@ -193,7 +202,7 @@ function actualizarResumen() {
             }
         }
         if (cantidad > 0) {
-            texto = texto + " " + opciones[i].value + ": " + cantidad + ".";
+            texto = `${texto} ${opciones[i].value}: ${cantidad}.`;
         }
     }
 
@@ -215,7 +224,8 @@ function iniciar() {
     actualizarTabla();
 }
 
-let campos = document.querySelectorAll("input, select, textarea");
+// Resalta el campo que tiene el foco
+const campos = document.querySelectorAll("input, select, textarea");
 
 for (let i = 0; i < campos.length; i++) {
     campos[i].addEventListener("focus", () => {
@@ -226,16 +236,18 @@ for (let i = 0; i < campos.length; i++) {
     });
 }
 
+// Contador de caracteres del nombre
 document.getElementById("nombre").addEventListener("input", () => {
-    let largo = document.getElementById("nombre").value.length;
-    document.getElementById("contador").textContent = largo + " / 40 caracteres";
+    const largo = document.getElementById("nombre").value.length;
+    document.getElementById("contador").textContent = `${largo} / 40 caracteres`;
 });
 
 document.getElementById("nombre").addEventListener("blur", validarNombre);
 document.getElementById("email").addEventListener("blur", validarEmail);
 
+// Muestra la descripción de la cámara elegida
 document.getElementById("camara").addEventListener("change", () => {
-    let elegida = document.getElementById("camara").value;
+    const elegida = document.getElementById("camara").value;
 
     if (elegida == "") {
         document.getElementById("descripcion-camara").textContent = "";

@@ -1,114 +1,142 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Thiago Vignettes">
+    <meta name="description" content="Historia de Canon, desde el prototipo Kwanon de 1934 hasta las cámaras mirrorless actuales.">
+    <meta name="keywords" content="Canon, cámaras, fotografía, EOS, historia de Canon, réflex, mirrorless">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="rating" content="general">
+    <meta name="application-name" content="Canon, historia de una marca">
+    <meta name="theme-color" content="#cc0000">
+    <meta property="og:title" content="Canon — Historia de una marca">
+    <meta property="og:description" content="Historia de Canon, desde el prototipo Kwanon de 1934 hasta las cámaras mirrorless actuales.">
+    <meta property="og:image" content="https://thiagovignettes.github.io/Canon/img/kwanon.jpg">
+    <meta property="og:url" content="https://thiagovignettes.github.io/Canon/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Canon — Historia de una marca">
+    <meta name="twitter:description" content="Historia de Canon, desde el prototipo Kwanon de 1934 hasta las cámaras mirrorless actuales.">
+    <meta name="twitter:image" content="https://thiagovignettes.github.io/Canon/img/kwanon.jpg">
     <title>Canon — Historia de una marca</title>
-    <link rel="stylesheet" href="CSS/estilos.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap">
+    <link rel="stylesheet" href="CSS/estilos.min.css">
+    <script src="JS/comun.js" defer></script>
+    <script src="JS/inicio.js" defer></script>
 </head>
 <body>
 
+    <a class="saltar" href="#contenido" title="Saltar al contenido principal">Saltar al contenido</a>
+
+    <!-- Encabezado y menú -->
     <header id="encabezado">
         <div class="barra">
-            <a class="marca" href="index.html"><img src="img/logo-canon.png" alt="Canon"></a>
-            <nav>
-                <a class="activo" href="index.html">Inicio</a>
-                <a href="HTML/historia.html">Historia</a>
-                <a href="HTML/camaras.html">Cámaras</a>
-                <a href="HTML/galeria.html">Galería</a>
-                <a href="HTML/contacto.html">Club</a>
-            </nav>
+            <a class="marca" href="index.html" title="Ir a la página de inicio"><img src="img/logo-canon.png" alt="Logo de Canon" width="150" height="32"></a>
             <button id="btn-tema" type="button">☾ Modo oscuro</button>
+            <nav aria-label="Menú principal">
+                <a class="activo" aria-current="page" href="index.html" title="Ir a la página de inicio">Inicio</a>
+                <a href="HTML/historia.html" title="Línea de tiempo de Canon">Historia</a>
+                <a href="HTML/camaras.html" title="Tabla de cámaras emblemáticas">Cámaras</a>
+                <a href="HTML/objetivos.html" title="Monturas y objetivos de Canon">Objetivos</a>
+                <a href="HTML/tecnologia.html" title="Tecnologías que desarrolló Canon">Tecnología</a>
+                <a href="HTML/galeria.html" title="Fotos, gráficos y video">Galería</a>
+                <a href="HTML/glosario.html" title="Términos de fotografía">Glosario</a>
+                <a href="HTML/preguntas-frecuentes.html" title="Preguntas frecuentes">Preguntas</a>
+                <a href="HTML/club.html" title="Anotate en el club de fotografía">Club</a>
+                <a href="HTML/acerca.html" title="Quién hizo este sitio">Acerca</a>
+            </nav>
         </div>
     </header>
 
-    <div class="portada">
-        <h1>Canon</h1>
-        <p>Historia, tecnología y cámaras emblemáticas de una marca que nació en un pequeño laboratorio de Tokio.</p>
-        <p class="saludo" id="saludo"></p>
-    </div>
+    <!-- Contenido -->
+    <main id="contenido" class="inicio">
+        <section class="portada">
+            <h1>Canon</h1>
+            <p>Historia, tecnología y cámaras emblemáticas de una marca que nació en un pequeño laboratorio de Tokio.</p>
+            <p class="saludo" id="saludo" aria-live="polite"></p>
+        </section>
 
-    <main>
+        <div class="envoltura">
 
-        <section class="dos-columnas">
-            <div>
-                <h2 class="titulo-seccion">De un laboratorio en Tokio a la fotografía digital</h2>
+            <section class="dos-columnas">
+                <div>
+                    <h2 class="titulo-seccion">De un laboratorio en Tokio a la fotografía digital</h2>
+                    <p>
+                        En 1934 un pequeño laboratorio japonés construyó el prototipo de la
+                        primera cámara de <strong>35 milímetros</strong> fabricada en Japón.
+                        La llamaron <em>Kwanon</em>.
+                    </p>
+                    <p>
+                        Nueve décadas después, esa empresa es uno de los fabricantes de
+                        equipamiento fotográfico más grandes del mundo. Este sitio recorre esa
+                        historia: los modelos que marcaron un antes y un después y el salto
+                        del carrete al sensor digital.
+                    </p>
+                    <p><a class="boton" href="HTML/historia.html" title="Ver la línea de tiempo completa">Conocé la historia completa</a></p>
+                </div>
+                <figure>
+                    <img src="img/kwanon.jpg" alt="Réplica del prototipo Kwanon, una cámara plateada de 1934" width="1000" height="666">
+                    <figcaption>Réplica del prototipo Kwanon (1934)</figcaption>
+                </figure>
+            </section>
+
+            <blockquote>
+                La <abbr title="Single Lens Reflex">SLR</abbr> dejó de ser una
+                herramienta de especialistas cuando el precio y la automatización
+                se encontraron en el mismo cuerpo.
+            </blockquote>
+
+            <section>
+                <h2 class="titulo-seccion">Tres momentos que cambiaron todo</h2>
+
+                <div class="grilla">
+                    <article class="tarjeta">
+                        <span class="etiqueta-anio">1976</span>
+                        <h3>Canon AE-1</h3>
+                        <p>La primera <abbr title="Single Lens Reflex">SLR</abbr> con un microprocesador. Vendió millones de unidades y puso la réflex al alcance del aficionado.</p>
+                        <a href="HTML/camaras.html" title="Ver la tabla de cámaras">Ver ficha de la AE-1</a>
+                    </article>
+
+                    <article class="tarjeta">
+                        <span class="etiqueta-anio">1987</span>
+                        <h3>Sistema EOS</h3>
+                        <p>Canon dejó la montura FD y lanzó la montura <strong>EF</strong>, totalmente electrónica, con el motor de enfoque dentro del objetivo.</p>
+                        <a href="HTML/objetivos.html" title="Ver las monturas de Canon">Ver las monturas de Canon</a>
+                    </article>
+
+                    <article class="tarjeta">
+                        <span class="etiqueta-anio">2003</span>
+                        <h3>EOS 300D</h3>
+                        <p>La <abbr title="Digital Single Lens Reflex">DSLR</abbr> que bajó de los mil dólares y llevó el sensor digital al público general.</p>
+                        <a href="HTML/galeria.html" title="Ver fotos de las cámaras">Ver fotos de la EOS 300D</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="dato">
+                <h2>¿Sabías que…?</h2>
                 <p>
-                    En 1934 un pequeño laboratorio japonés construyó el prototipo de la
-                    primera cámara de <strong>35 milímetros</strong> fabricada en Japón.
-                    La llamaron <em>Kwanon</em>. Nueve décadas después, esa empresa es uno
-                    de los fabricantes de equipamiento fotográfico más grandes del mundo.
+                    El nombre Kwanon viene de Kannon, la deidad budista de la misericordia.
+                    Al salir al mundo, la marca adoptó la grafía <strong>Canon</strong>,
+                    más fácil de pronunciar fuera de Japón.
                 </p>
-                <p>
-                    Este sitio recorre esa historia: los modelos que marcaron un antes y un
-                    después, las decisiones técnicas que definieron el rumbo de la marca, y
-                    el salto del carrete al sensor digital.
-                </p>
-            </div>
-            <figure>
-                <img src="img/kwanon.jpg" alt="Prototipo Kwanon de 1934">
-                <figcaption>El prototipo Kwanon (1934)</figcaption>
-            </figure>
-        </section>
+            </section>
 
-        <blockquote>
-            La <abbr title="Single Lens Reflex">SLR</abbr> dejó de ser una
-            herramienta de especialistas cuando el precio y la automatización
-            se encontraron en el mismo cuerpo.
-        </blockquote>
-
-        <section>
-            <h2 class="titulo-seccion">Tres momentos que cambiaron todo</h2>
-
-            <div class="grilla">
-                <article class="tarjeta">
-                    <span class="anio">1976</span>
-                    <h3>Canon AE-1</h3>
-                    <p>
-                        La primera <abbr title="Single Lens Reflex">SLR</abbr> con un
-                        microprocesador a bordo. Vendió millones de unidades y puso la
-                        fotografía réflex al alcance del aficionado.
-                    </p>
-                    <a href="HTML/camaras.html">Ver ficha →</a>
-                </article>
-
-                <article class="tarjeta">
-                    <span class="anio">1987</span>
-                    <h3>Sistema EOS</h3>
-                    <p>
-                        Canon abandonó la montura FD y lanzó la montura <strong>EF</strong>,
-                        totalmente electrónica, con el motor de enfoque dentro del objetivo.
-                    </p>
-                    <a href="HTML/camaras.html">Ver ficha →</a>
-                </article>
-
-                <article class="tarjeta">
-                    <span class="anio">2003</span>
-                    <h3>EOS 300D</h3>
-                    <p>
-                        La <abbr title="Digital Single Lens Reflex">DSLR</abbr> que rompió
-                        la barrera de los mil dólares y llevó el sensor digital al mercado
-                        de consumo.
-                    </p>
-                    <a href="HTML/camaras.html">Ver ficha →</a>
-                </article>
-            </div>
-        </section>
-
-        <section class="dato">
-            <strong>Dato:</strong> el nombre Kwanon proviene de Kannon, la deidad budista
-            de la misericordia. Al internacionalizarse, la marca adoptó la grafía
-            <strong>Canon</strong>, más fácil de pronunciar fuera de Japón.
-        </section>
-
+        </div>
     </main>
 
+    <!-- Pie de página -->
     <footer>
-        Trabajo práctico — Introducción a la Programación Web · Thiago Vignettes<br>
-        <a href="HTML/contacto.html">Sumate al club</a>
+        <p>© 2026 Thiago Vignettes · Trabajo práctico de Introducción a la Programación Web (UAI)</p>
+        <p>Sitio sin fines comerciales. Canon es una marca registrada de Canon Inc.</p>
+        <p><a href="HTML/acerca.html" title="Quién hizo este sitio y fuentes usadas">Acerca de este sitio</a></p>
     </footer>
 
-    <script src="JS/comun.js"></script>
-    <script src="JS/inicio.js"></script>
 </body>
 </html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Thiago Vignettes">
+    <meta name="description" content="Anotate en el club de fotografía Canon y contanos cuál es tu cámara favorita.">
+    <meta name="keywords" content="Canon, cámaras, fotografía, EOS, historia de Canon, réflex, mirrorless">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="rating" content="general">
+    <meta name="application-name" content="Canon, historia de una marca">
+    <meta name="theme-color" content="#cc0000">
+    <meta property="og:title" content="Canon — Club de fotografía">
+    <meta property="og:description" content="Anotate en el club de fotografía Canon y contanos cuál es tu cámara favorita.">
+    <meta property="og:image" content="https://thiagovignettes.github.io/Canon/img/kwanon.jpg">
+    <meta property="og:url" content="https://thiagovignettes.github.io/Canon/HTML/club.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Canon — Club de fotografía">
+    <meta name="twitter:description" content="Anotate en el club de fotografía Canon y contanos cuál es tu cámara favorita.">
+    <meta name="twitter:image" content="https://thiagovignettes.github.io/Canon/img/kwanon.jpg">
+    <title>Canon — Club de fotografía</title>
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap">
+    <link rel="stylesheet" href="../CSS/estilos.min.css">
+    <script src="../JS/comun.js" defer></script>
+    <script src="../JS/club.js" defer></script>
+</head>
+<body>
+
+    <a class="saltar" href="#contenido" title="Saltar al contenido principal">Saltar al contenido</a>
+
+    <!-- Encabezado y menú -->
+    <header id="encabezado">
+        <div class="barra">
+            <a class="marca" href="../index.html" title="Ir a la página de inicio"><img src="../img/logo-canon.png" alt="Logo de Canon" width="150" height="32"></a>
+            <button id="btn-tema" type="button">☾ Modo oscuro</button>
+            <nav aria-label="Menú principal">
+                <a href="../index.html" title="Ir a la página de inicio">Inicio</a>
+                <a href="historia.html" title="Línea de tiempo de Canon">Historia</a>
+                <a href="camaras.html" title="Tabla de cámaras emblemáticas">Cámaras</a>
+                <a href="objetivos.html" title="Monturas y objetivos de Canon">Objetivos</a>
+                <a href="tecnologia.html" title="Tecnologías que desarrolló Canon">Tecnología</a>
+                <a href="galeria.html" title="Fotos, gráficos y video">Galería</a>
+                <a href="glosario.html" title="Términos de fotografía">Glosario</a>
+                <a href="preguntas-frecuentes.html" title="Preguntas frecuentes">Preguntas</a>
+                <a class="activo" aria-current="page" href="club.html" title="Anotate en el club de fotografía">Club</a>
+                <a href="acerca.html" title="Quién hizo este sitio">Acerca</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido -->
+    <main id="contenido">
+        <h1 class="titulo-seccion">Club de fotografía Canon</h1>
+        <p class="subtitulo">Anotate y contanos cuál es tu cámara favorita.</p>
+
+        <section class="tarjeta">
+            <h2>Formulario de inscripción</h2>
+            <form id="formulario" class="formulario" novalidate>
+                <div>
+                    <label for="nombre">Nombre y apellido</label>
+                    <input type="text" id="nombre" maxlength="40" autocomplete="name">
+                    <p class="contador" id="contador">0 / 40 caracteres</p>
+                </div>
+
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="nombre@correo.com" autocomplete="email">
+                </div>
+
+                <div>
+                    <label for="camara">Cámara favorita</label>
+                    <select id="camara">
+                        <option value="">Elegí una opción</option>
+                        <option value="Canon AE-1">Canon AE-1</option>
+                        <option value="Canon EOS 650">Canon EOS 650</option>
+                        <option value="Canon EOS 300D">Canon EOS 300D</option>
+                        <option value="Canon EOS 5D Mark II">Canon EOS 5D Mark II</option>
+                        <option value="Canon EOS R">Canon EOS R</option>
+                    </select>
+                    <p class="contador" id="descripcion-camara"></p>
+                </div>
+
+                <div>
+                    <label for="fecha">Fecha de inscripción</label>
+                    <input type="date" id="fecha">
+                </div>
+
+                <div class="completo">
+                    <label for="comentario">Comentario (opcional)</label>
+                    <textarea id="comentario" rows="3" placeholder="¿Por qué te gusta esa cámara?"></textarea>
+                </div>
+
+                <div class="completo">
+                    <label class="acepto" for="acepto"><input type="checkbox" id="acepto">Acepto que mis datos se guarden en este navegador</label>
+                </div>
+
+                <div class="completo botones">
+                    <button class="boton" type="submit">Anotarme</button>
+                    <button class="boton secundario" type="button" id="btn-limpiar">Limpiar formulario</button>
+                </div>
+            </form>
+
+            <p id="mensaje" role="status"></p>
+        </section>
+
+        <section>
+            <h2 class="titulo-seccion">Miembros del club</h2>
+
+            <div class="tabla-contenedor">
+                <table>
+                    <caption>Personas anotadas en el club</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Cámara favorita</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo-miembros"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" id="resumen"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <p class="info">Tip: presioná <kbd>Escape</kbd> para borrar los mensajes.</p>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2026 Thiago Vignettes · Trabajo práctico de Introducción a la Programación Web (UAI)</p>
+        <p>Sitio sin fines comerciales. Canon es una marca registrada de Canon Inc.</p>
+        <p><a href="acerca.html" title="Quién hizo este sitio y fuentes usadas">Acerca de este sitio</a></p>
+    </footer>
+
+</body>
+</html>

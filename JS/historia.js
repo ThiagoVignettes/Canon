@@ -1,4 +1,5 @@
-let preguntas = [
+// Preguntas del quiz
+const preguntas = [
     {
         texto: "¿En qué año se construyó el prototipo Kwanon?",
         opciones: ["1924", "1934", "1947", "1976"],
@@ -29,28 +30,38 @@ let preguntas = [
 let puntaje = 0;
 let respondidas = 0;
 
+// Abre o cierra un año de la línea de tiempo
 function abrirEvento(evento) {
-    let elemento = evento.target;
+    let boton = evento.target;
 
-    if (elemento.tagName != "LI") {
-        elemento = elemento.parentElement;
+    if (boton.tagName != "BUTTON") {
+        boton = boton.parentElement;
+    }
+    if (boton.tagName != "BUTTON") {
+        return;
     }
 
-    if (elemento.tagName == "LI") {
-        elemento.classList.toggle("abierto");
+    const item = boton.parentElement;
+    item.classList.toggle("abierto");
+
+    if (item.classList.contains("abierto")) {
+        boton.setAttribute("aria-expanded", "true");
+    } else {
+        boton.setAttribute("aria-expanded", "false");
     }
 }
 
+// Arma la tarjeta de una pregunta
 function crearPregunta(pregunta, numero) {
-    let tarjeta = document.createElement("article");
+    const tarjeta = document.createElement("article");
     tarjeta.className = "tarjeta pregunta";
 
-    let titulo = document.createElement("h3");
-    titulo.textContent = (numero + 1) + ". " + pregunta.texto;
+    const titulo = document.createElement("h3");
+    titulo.textContent = `${numero + 1}. ${pregunta.texto}`;
     tarjeta.appendChild(titulo);
 
     for (let i = 0; i < pregunta.opciones.length; i++) {
-        let boton = document.createElement("button");
+        const boton = document.createElement("button");
         boton.type = "button";
         boton.className = "opcion";
         boton.textContent = pregunta.opciones[i];
@@ -63,9 +74,10 @@ function crearPregunta(pregunta, numero) {
     return tarjeta;
 }
 
+// Marca la respuesta y suma el puntaje
 function responder(tarjeta, numero, elegida) {
-    let botones = tarjeta.querySelectorAll(".opcion");
-    let correcta = preguntas[numero].correcta;
+    const botones = tarjeta.querySelectorAll(".opcion");
+    const correcta = preguntas[numero].correcta;
 
     for (let i = 0; i < botones.length; i++) {
         botones[i].disabled = true;
@@ -74,9 +86,12 @@ function responder(tarjeta, numero, elegida) {
     if (elegida == correcta) {
         puntaje++;
         botones[elegida].classList.add("correcta");
+        botones[elegida].textContent = `✓ ${botones[elegida].textContent}`;
     } else {
         botones[elegida].classList.add("incorrecta");
+        botones[elegida].textContent = `✗ ${botones[elegida].textContent}`;
         botones[correcta].classList.add("correcta");
+        botones[correcta].textContent = `✓ ${botones[correcta].textContent}`;
     }
 
     respondidas++;
@@ -87,13 +102,13 @@ function responder(tarjeta, numero, elegida) {
     }
 }
 
+// Guarda el mejor puntaje
 function guardarMejorPuntaje() {
-    let mejor = Number(localStorage.getItem("mejorPuntaje"));
+    const mejor = Number(localStorage.getItem("mejorPuntaje"));
 
     if (puntaje > mejor) {
         localStorage.setItem("mejorPuntaje", puntaje);
     }
-
     mostrarMejorPuntaje();
 }
 
@@ -101,8 +116,9 @@ function mostrarMejorPuntaje() {
     document.getElementById("mejor").textContent = Number(localStorage.getItem("mejorPuntaje"));
 }
 
+// Arma el quiz desde cero
 function armarQuiz() {
-    let contenedor = document.getElementById("preguntas");
+    const contenedor = document.getElementById("preguntas");
     contenedor.innerHTML = "";
     puntaje = 0;
     respondidas = 0;

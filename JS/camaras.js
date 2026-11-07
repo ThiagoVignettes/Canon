@@ -1,4 +1,4 @@
-// Este archivo está en Cámaras. Arma la tabla con JavaScript y deja buscar, filtrar y ordenar.
+// Este archivo está en Cámaras. Arma la tabla con JavaScript y deja filtrarla por tipo.
 
 // Arreglo de objetos: cada objeto es una cámara con sus datos.
 // La tabla del HTML está vacía y se llena con esto.
@@ -14,20 +14,11 @@ const camaras = [
     { modelo: "Canon EOS R5", anio: 2020, tipo: "Mirrorless", montura: "RF", formato: "Full frame (digital)", descripcion: "45 megapíxeles y video 8K. Una de las cámaras más completas de la marca." }
 ];
 
-// Guarda hacia dónde ordené por año la última vez (para alternar)
-let ordenAscendente = false;
-
 // Me dice si una cámara se tiene que mostrar o no.
-// Devuelve true si coincide con lo que escribí en el buscador y con el tipo elegido.
-function cumpleFiltros(camara) {
-    // paso todo a minúsculas para que "eos" y "EOS" den lo mismo
-    const texto = document.getElementById("buscar").value.toLowerCase();
+// Devuelve true si es del tipo elegido en la lista (o si está elegido "Todos").
+function cumpleFiltro(camara) {
     const tipo = document.getElementById("filtro-tipo").value;
 
-    // includes se fija si el texto está adentro del nombre del modelo
-    if (camara.modelo.toLowerCase().includes(texto) == false) {
-        return false;
-    }
     if (tipo != "Todos" && camara.tipo != tipo) {
         return false;
     }
@@ -73,8 +64,8 @@ function crearFila(camara) {
     return fila;
 }
 
-// Borra la tabla y la vuelve a armar solo con las cámaras que pasan los filtros.
-// Se llama al cargar la página y cada vez que busco, filtro u ordeno.
+// Borra la tabla y la vuelve a armar solo con las cámaras del tipo elegido.
+// Se llama al cargar la página y cada vez que cambio el filtro.
 function actualizarTabla() {
     const cuerpo = document.getElementById("cuerpo-tabla");
     let cantidad = 0;
@@ -83,18 +74,14 @@ function actualizarTabla() {
 
     // recorro todas las cámaras y agrego solo las que cumplen
     for (let i = 0; i < camaras.length; i++) {
-        if (cumpleFiltros(camaras[i])) {
+        if (cumpleFiltro(camaras[i])) {
             cuerpo.appendChild(crearFila(camaras[i]));
             cantidad++;
         }
     }
 
     // muestro cuántas quedaron
-    if (cantidad == 0) {
-        document.getElementById("cantidad").textContent = "No se encontró ningún modelo.";
-    } else {
-        document.getElementById("cantidad").textContent = `Mostrando ${cantidad} de ${camaras.length} modelos.`;
-    }
+    document.getElementById("cantidad").textContent = `Mostrando ${cantidad} de ${camaras.length} modelos.`;
 }
 
 // Muestra abajo de la tabla el nombre, el año y la descripción de la cámara
@@ -105,44 +92,9 @@ function mostrarFicha(camara) {
     document.getElementById("ficha").classList.add("visible");
 }
 
-// Estas dos funciones le dicen a sort() cómo ordenar (son callbacks).
-// Si devuelven un número negativo, "a" va primero; si es positivo, va "b".
-
-// Ordena por año, de más vieja a más nueva o al revés
-function compararPorAnio(a, b) {
-    if (ordenAscendente) {
-        return a.anio - b.anio;
-    }
-    return b.anio - a.anio;
-}
-
-// Ordena por nombre, alfabéticamente
-function compararPorModelo(a, b) {
-    if (a.modelo < b.modelo) {
-        return -1;
-    }
-    if (a.modelo > b.modelo) {
-        return 1;
-    }
-    return 0;
-}
-
-// Se fija qué título toqué (Modelo o Año) mirando su id, ordena y vuelve a dibujar
-function ordenarTabla(evento) {
-    if (evento.target.id == "orden-anio") {
-        camaras.sort(compararPorAnio);
-        // la próxima vez ordena al revés
-        ordenAscendente = !ordenAscendente;
-    } else if (evento.target.id == "orden-modelo") {
-        camaras.sort(compararPorModelo);
-    }
-    actualizarTabla();
-}
-
-// Si aprieto Escape, borro la búsqueda, vuelvo el filtro a "Todos" y escondo la ficha
+// Si aprieto Escape, vuelvo el filtro a "Todos" y escondo la ficha
 function limpiarConEscape(evento) {
     if (evento.key == "Escape") {
-        document.getElementById("buscar").value = "";
         document.getElementById("filtro-tipo").value = "Todos";
         document.getElementById("ficha").classList.remove("visible");
         actualizarTabla();
@@ -152,14 +104,6 @@ function limpiarConEscape(evento) {
 // Eventos
 // cuando termina de cargar la página, dibujo la tabla
 document.addEventListener("DOMContentLoaded", actualizarTabla);
-// input: se ejecuta con cada letra que escribo en el buscador
-document.getElementById("buscar").addEventListener("input", actualizarTabla);
 // change: se ejecuta cuando elijo otro tipo en la lista
 document.getElementById("filtro-tipo").addEventListener("change", actualizarTabla);
-// un solo evento para los dos botones de los títulos
-document.getElementById("titulos").addEventListener("click", ordenarTabla);
 document.addEventListener("keydown", limpiarConEscape);
-// preventDefault evita que Enter en el buscador recargue la página
-document.getElementById("filtros").addEventListener("submit", (evento) => {
-    evento.preventDefault();
-});

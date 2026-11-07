@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Thiago Vignettes">
-    <meta name="description" content="Tabla comparativa de las cámaras más importantes de Canon, con búsqueda, filtro y ficha de cada modelo.">
+    <meta name="description" content="Tabla comparativa de las cámaras más importantes de Canon, con filtro por tipo y ficha de cada modelo.">
     <meta name="keywords" content="Canon, cámaras, fotografía, EOS, historia de Canon, réflex, mirrorless">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
@@ -14,12 +14,12 @@
     <meta name="application-name" content="Canon, historia de una marca">
     <meta name="theme-color" content="#cc0000">
     <meta property="og:title" content="Canon — Cámaras emblemáticas">
-    <meta property="og:description" content="Tabla comparativa de las cámaras más importantes de Canon, con búsqueda, filtro y ficha de cada modelo.">
+    <meta property="og:description" content="Tabla comparativa de las cámaras más importantes de Canon, con filtro por tipo y ficha de cada modelo.">
     <meta property="og:image" content="https://thiagovignettes.github.io/Canon/img/kwanon.jpg">
     <meta property="og:url" content="https://thiagovignettes.github.io/Canon/HTML/camaras.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Canon — Cámaras emblemáticas">
-    <meta name="twitter:description" content="Tabla comparativa de las cámaras más importantes de Canon, con búsqueda, filtro y ficha de cada modelo.">
+    <meta name="twitter:description" content="Tabla comparativa de las cámaras más importantes de Canon, con filtro por tipo y ficha de cada modelo.">
     <meta name="twitter:image" content="https://thiagovignettes.github.io/Canon/img/kwanon.jpg">
     <title>Canon — Cámaras emblemáticas</title>
     <link rel="icon" type="image/png" href="../img/favicon.png">
@@ -57,13 +57,9 @@
     <!-- Contenido -->
     <main id="contenido">
         <h1 class="titulo-seccion">Cámaras emblemáticas de Canon</h1>
-        <p class="subtitulo">Buscá un modelo, filtrá por tipo u ordená la tabla con los botones de los títulos.</p>
+        <p class="subtitulo">Filtrá por tipo de cámara y tocá una fila para ver su ficha.</p>
 
-        <form class="controles" id="filtros">
-            <div>
-                <label for="buscar">Buscar modelo</label>
-                <input type="search" id="buscar" placeholder="Ej: EOS, AE-1...">
-            </div>
+        <div class="controles">
             <div>
                 <label for="filtro-tipo">Tipo de cámara</label>
                 <select id="filtro-tipo">
@@ -73,7 +69,7 @@
                     <option value="Mirrorless">Mirrorless</option>
                 </select>
             </div>
-        </form>
+        </div>
 
         <p class="info" id="cantidad" aria-live="polite"></p>
 
@@ -81,9 +77,9 @@
             <table>
                 <caption>Comparativa de modelos históricos</caption>
                 <thead>
-                    <tr id="titulos">
-                        <th scope="col"><button class="boton-orden" id="orden-modelo" type="button" title="Ordenar por nombre">Modelo</button></th>
-                        <th scope="col"><button class="boton-orden" id="orden-anio" type="button" title="Ordenar por año">Año</button></th>
+                    <tr>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Año</th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Montura</th>
                         <th scope="col">Formato</th>
@@ -103,7 +99,7 @@
             <p id="ficha-texto"></p>
         </article>
 
-        <p class="info">Tip: presioná <kbd>Escape</kbd> para borrar la búsqueda.</p>
+        <p class="info">Tip: presioná <kbd>Escape</kbd> para volver a mostrar todos los modelos.</p>
     </main>
 
     <!-- Pie de página -->

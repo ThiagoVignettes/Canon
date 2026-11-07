@@ -400,6 +400,7 @@ dd {
 .controles div {
     flex: 1;
     min-width: 12.5rem;
+    max-width: 22rem;
 }
 
 label {
@@ -550,17 +551,6 @@ thead th {
 tfoot td {
     color: var(--gris);
     font-size: 0.875rem;
-}
-
-.boton-orden {
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    color: #ffffff;
-    font: inherit;
-    font-weight: 700;
-    text-decoration: underline;
-    cursor: pointer;
 }
 
 tbody tr:nth-child(even) {
